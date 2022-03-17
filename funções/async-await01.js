@@ -34,8 +34,12 @@ async function executar() {
 
     await esperarPor(1500);
     console.log(`Async/Await ${valor+20}...`); 
+
+    return valor+30;
 }
-executar();
+
+// acessando o valor do executar usando o sincronismo - precisa usar o then
+executar().then(console.log);
 
 /* node nao permite fazer isso
 const v = await executar();
