@@ -20,11 +20,18 @@ function retornarValor() {
     }))
 }
 
+async function retornarValorDiretamente() {
+    return 20; //esse 20 é o valor dentro do resolve
+    //promise resolvida logo na hora - não tem o parametro de tempo
+}
+
 // await precisa estar dentro de uma função async
 // sem o comando await antes ele executa os 3 console de uma vez
 async function executar() {
     //preciso que o valor seja resolvido para então mostrar os console de baixo
-    let valor = await retornarValor();
+
+    //se nao colocar await ele vai colocar uma promise (object Promise) dentro do valor, e nao o valor (20) retornado pela promise
+    let valor = await retornarValorDiretamente();
 
     await esperarPor(1500);
     console.log(`Async/Await ${valor}...`); 
