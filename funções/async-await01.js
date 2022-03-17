@@ -38,8 +38,12 @@ async function executar() {
     return valor+30;
 }
 
-// acessando o valor do executar usando o sincronismo - precisa usar o then
-executar().then(console.log);
+async function executarDeVerdade() {
+    const valor = await executar();
+    console.log(`Async dentro de Async: ${valor}`);
+}
+
+executarDeVerdade();
 
 /* node nao permite fazer isso
 const v = await executar();
